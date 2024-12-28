@@ -71,6 +71,3 @@ def menu():
 menu()
 
 #Por enquanto está assim, por conta de não está conseguindo importar outro arquivo para o main
-
- git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
