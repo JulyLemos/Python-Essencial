@@ -1,4 +1,5 @@
 import time
+import math
 
 def exe1_1():
     #Crie um programa que armazene seu nome e sua idade em variáveis separadas e imprima uma saída formatada com elas.
@@ -44,12 +45,66 @@ def exe1_6():
     num = int(input("Digite um número: "))
     print(f"A raiz quadrada do número é {num*num}")
 
+#07/01/2025
+def exe1_7():
+    #Crie um programa que peça ao usuário para digitar um número inteiro. Em seguida, o programa deve calcular e 
+    # mostrar o valor dos inteiros anterior e posterior a esse número.
+    num= int(input("Digite um número: "))
+    ant = num - 1
+    post = num + 1
+    print(f"O número anterior é {ant} e o posterior é {post}")
+
+def exe1_8():
+    #Crie um programa que peça ao usuário para digitar um ângulo entre 0 e 360 graus. 
+    #Em seguida, o programa deve calcular e mostrar o seno, cosseno e tangente desse número.
+    ang = int(input("Digite um ângulo entre 0  e 360: "))
+    seno = math.sin(math.radians(ang))
+    coss = math.cos(math.radians(ang))
+    tang = math.tan(math.radians(ang))
+    print(f"O ângulo digitado foi {ang} \nO Seno é de {seno:.2f}\nO Cosseno é de {coss:.2f} \nA Tangente é de {tang:.2f}")
+
+def exe1_9():
+    #Crie um programa que peça ao usuário para digitar dois números quaisquer. 
+    #Em seguida, o programa deve calcular e mostrar a potência do primeiro número pelo segundo.
+    num1 = int(input("Digite um número: "))
+    num2 = int(input("Digite um outro número: "))
+    pot = num1**num2
+    print(f"A potênciação de {num1} por {num2} é igual a {pot}")
+
+def exe1_10():
+    #Crie um programa que peça ao usuário para digitar três números (A, B e C). 
+    # Em seguida, o programa deve calcular e mostrar os valores das raízes da seguinte equação, usando a fórmula de Bhaskara.
+    a = int(input("Digite o valor de a: "))
+    b = int(input("Digite o valor de b: "))
+    c = int(input("Digite o valor de c: "))
+    delta = (b)**2 - (4*a*c)
+
+    if delta == 0: #delta = a 0 possui apenas uma raiz
+        raiz = (-b)/2*a
+        print(f"A raiz da equação é {raiz}")
+    elif delta > 0:
+        raiz1 = ((-b)+math.sqrt(delta))/2*a
+        raiz2 = ((-b)-math.sqrt(delta))/2*a
+        print(f"A raiz x' da equação é {raiz1} \nA raiz x'' da equação é {raiz2}")
+    else: #quando o número é negativo, não possui raiz
+        print("Não possui raízes reais.")
+
+def exe1_11():
+    #Crie um programa que peça ao usuário para digitar o raio de um círculo. 
+    #Em seguida, o programa deve calcular e mostrar a área e o comprimento do círculo.
+    raio = int(input("Digite o raio do círculo: "))
+    print(f"A área do círculo é {math.pi*(raio**2):.2f}") #por estar usando a biblioteca math.pi, o valor vai tender para acima
+    print(f"O comprimento do círculo é {2 * math.pi * raio:.2f}") #se fosse 3.14 definido, o valor seria um pouco mais baixo
+    
+
+
+
 
 def menu():
     while True:
         time.sleep(2)
         print("\n")
-        for i in range(1,7):
+        for i in range(1,12):
             print(f"Questão {i}")
 
         op = int(input("\nDigite uma opção:"))
@@ -67,6 +122,16 @@ def menu():
                 exe1_5()
             case 6:
                 exe1_6()
+            case 7:
+                exe1_7()
+            case 8:
+                exe1_8()
+            case 9:
+                exe1_9()
+            case 10:
+                exe1_10()
+            case 11:
+                exe1_11()
 
 menu()
 
